@@ -103,7 +103,18 @@ else { $cols = 'col-sm-6 col-md-4 col-lg-3'; }
                 ) );
         ?>   
 
-    
+        <?php
+            // ------------------ FEEDBACK (COMMENTS/TRACKBACKS) INCLUDED HERE ------------------
+            skin_include( '_item_feedback.inc.php', array(
+                    'before_section_title' => '<h4>',
+                    'after_section_title'  => '</h4>',
+                    'author_link_text' => $params['author_link_text'],
+                ) );
+            // Note: You can customize the default item feedback by copying the generic
+            // /skins/_item_feedback.inc.php file into the current skin folder.
+            // ---------------------- END OF FEEDBACK (COMMENTS/TRACKBACKS) ---------------------
+        ?>
+            
         <?php
             locale_restore_previous();	// Restore previous locale (Blog locale)
         ?>
