@@ -98,7 +98,15 @@ add_headline( '<![endif]-->' ); ?>
 
 <?php
 // ---------------------------- TOOLBAR INCLUDED HERE ----------------------------
-require $skins_path.'_toolbar.inc.php';
+if ( function_exists('skin_fallback_path' ) )
+{ // Support new Skin API v6
+	require skin_fallback_path( '_toolbar.inc.php' );
+}
+else
+{ // But still available for Skin API v5 sites
+	require $skins_path.'_toolbar.inc.php';
+}
+
 // ------------------------------- END OF TOOLBAR --------------------------------
 
 echo "\n";
