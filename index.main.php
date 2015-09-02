@@ -241,10 +241,10 @@ $skinuri = $skins_url.$skin.'/';
 		// -------------------- PREV/NEXT PAGE LINKS (POST LIST MODE) --------------------
 		mainlist_page_links( array(
 
-				'block_start' => '<div id="da_pagination" class="pagination-wrap row box_wrap"><span><i class="fa fa-chevron-circle-right"></i> More </span><span class="pagination">',
+				'block_start' => '<div id="da_pagination" class="pagination-wrap row box_wrap"><span class="pagination">',
 				'block_end' => '</span></div>',
-   			//    'next_text'     => '<span class="next_link">&gt;&gt;</span>',
-				'links_format' => '$prev$ $first$ $list_prev$ $list$ $list_next$ $last$ <span class="next_link">$next$</span>'
+   			    'next_text'     => '&gt;&gt',
+				'links_format' => '$prev$ $first$ $list_prev$ $list$ $list_next$ $last$ $next$'
 
 //			'links_format' => '$prev$$list$$next$',
 			) );

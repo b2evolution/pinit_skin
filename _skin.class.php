@@ -186,11 +186,49 @@ class pinit_Skin extends Skin
 	 */
 	function display_init()
 	{
-		global $Blog, $disp, $Item, $baseurl, $skins_url, $Chapter, $ReqURI,$app_version,$Skin,$skin;
+		global $Blog, $disp, $Item, $baseurl, $skins_url, $Chapter, $ReqURI,$app_version,$Skin,$skin ,$xmlsrv_url, $htsrv_url, $MainList, $paged,$rsc_url, $app_version;
 	//	var_dump($headlines);	
 	//	$thumbnail_sizes['fit-440x600'] = array('fit',440,600,90);
 		// call parent:
 
+		// Request some common features that the parent function (Skin::display_init()) knows how to provide:
+		parent::display_init( array(
+				'jquery',                  // Load jQuery
+				'font_awesome',            // Load Font Awesome (and use its icons as a priority over the Bootstrap glyphicons)
+			) );
+			
+		require_css( 'css/bootstrap.min.css', 'relative' );
+		require_css( 'css/bootstrap-theme.min.css', 'relative' );
+		require_css( 'css/font-awesome.min.css', 'relative' );
+		require_css( 'css/style.css', 'relative' );
+		//require_css( 'css/options.php', 'relative' );
+		require_css( 'css/override.css', 'relative' );
+
+		// Skin specific initializations:
+
+		//require_css( 'css/options.php', 'relative' );
+		require_css( 'css/override.css', 'relative' );
+		
+		add_js_for_toolbar( 'blog' );		// Registers all the javascripts needed by the toolbar menu
+
+		$ajax_js = $rsc_url.'js/ajax.js';
+		if(file_exists($ajax_js) ) require_js( 'ajax.js', 'blog' );	// Functions to work with AJAX response data
+		//init_bubbletip_js( 'blog' ); // Add jQuery bubbletip plugin
+		// CSS for IE9
+		add_headline( '<!--[if IE 9 ]>' );
+		require_css( 'ie9.css', 'rsc_url' );
+		add_headline( '<![endif]-->' );
+		
+		add_headline("<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>");
+		
+		$Skin->eo_remove_headline('js','jquery.min');
+	
+		include_headlines(); /* Add javascript and css files included by plugins and skin */
+		
+		$Blog->disp( 'blog_css', 'raw');
+		$Blog->disp( 'user_css', 'raw');
+		if( method_exists($Blog,'disp_setting') ) $Blog->disp_setting( 'head_includes', 'raw');
+		
 		parent::display_init();
 		$Skin->arc_disp_arr = array('posts','front','search');
 		$Skin->feat_post_typs = array(
