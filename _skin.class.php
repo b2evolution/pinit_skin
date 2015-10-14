@@ -223,8 +223,6 @@ class pinit_Skin extends Skin
 		
 		$Skin->eo_remove_headline('js','jquery.min');
 	
-		include_headlines(); /* Add javascript and css files included by plugins and skin */
-		
 		$Blog->disp( 'blog_css', 'raw');
 		$Blog->disp( 'user_css', 'raw');
 		if( method_exists($Blog,'disp_setting') ) $Blog->disp_setting( 'head_includes', 'raw');
