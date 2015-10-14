@@ -8,6 +8,9 @@ Current stable version: 1.1.0
 
 ## Changelog:
 
+####Version 1.2.1 (2015-10-14):
+- Bug fixes
+
 ####Version 1.2.0 (2015-09-02):
 - Skin API v6.6+ compatibility
 
