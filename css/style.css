@@ -369,3 +369,10 @@ div.image_block img {
 	margin-bottom: 15px;
 	padding-bottom: 8px;
 }
+.evo_sidebar .ufld_icon_links a span {
+	
+}
+/* v1.2.1. Fixes */
+form.bComment  .label label {
+    color: #333;
+}
