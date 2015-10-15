@@ -4,9 +4,12 @@
 
 Developed by Emin Ozlem [http://eodepo.com/](http://eodepo.com/).
 
-Current stable version: 1.1.0
+Current stable version: 1.2.2
 
 ## Changelog:
+
+####Version 1.2.2 (2015-10-16):
+- Bug fixes
 
 ####Version 1.2.1 (2015-10-14):
 - Bug fixes
