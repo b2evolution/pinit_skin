@@ -373,6 +373,9 @@ div.image_block img {
 	
 }
 /* v1.2.1. Fixes */
+form.bComment  .label {
+    margin-top: 3px;
+}
 form.bComment  .label label {
     color: #333;
 }
